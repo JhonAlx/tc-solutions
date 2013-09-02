@@ -1,28 +1,14 @@
-import java.util.TreeSet;
+import java.util.*;
 
 public class Substitute 
 {
 	public static int getValue(String key, String code)
 	{
-		String s;
 		StringBuilder sb = new StringBuilder();
-		char[] c = code.toCharArray();
-		TreeSet<String> t = new TreeSet<String>();
-		
-		for(char q : c)
+
+		for(int i = 0; i < code.length(); i++)
 		{
-			t.add(String.valueOf(q));
-		}
-		
-		for(String q : t)
-		{
-			for(int i = 0; i < code.length(); i++)
-			{
-				if(code.contains(q))
-				{
-					sb.append(String.valueOf(code.indexOf(q)));
-				}
-			}
+			System.out.print(key.indexOf(code.charAt(i)) % 10);
 		}
 		
 		return Integer.parseInt(sb.toString());

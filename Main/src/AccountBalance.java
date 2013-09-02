@@ -18,12 +18,4 @@ public class AccountBalance
 		
 		return c;
 	}
-	
-	public static void main(String[] args)
-	{
-		int a = 100;
-		String[] b = {"C 1000", "D 500", "D 350"};
-		
-		System.out.println();
-	}
 }
