@@ -5,41 +5,50 @@ class Main
 {
 	static BufferedReader br;
 	static Scanner sn;
+	static ArrayList<Integer> a = new ArrayList<Integer>(); 
+	
+	public static void addToArrayList(String s)
+	{
+		String[] q = s.split("(?!^)");
+		
+		for(String y : q)
+			a.add(Integer.parseInt(y));
+	}
+	
+	public static long sumArray(ArrayList<Integer> i)
+	{
+		long x = 0;
+		
+		for(int q : i)
+			x += q;
+			
+		return x;
+	}
 	
 	public static void main(String[] args) throws IOException
 	{
-		Main myWork = new Main();
-		myWork.begin();
-	}
-	
-	static void begin()
-	{
 		br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = null;
-		char[] s, s1;
-		try
-		{
-			int n = Integer.parseInt(br.readLine());
-			int x;
+		sn = new Scanner(System.in);
+		String z;
 		
-			for(int i = 0; i < n; i++)
+		while((z = br.readLine()) != null)
+		{
+			a.clear();
+			String[] c = z.split("\\s");
+			int n = Integer.parseInt(c[0]);
+			int m = Integer.parseInt(c[1]);
+						
+			if(n == 0 && m == 0)
+				break;
+			else
 			{
-				sb  = new StringBuilder();
-				s = br.readLine().toCharArray();
-				s1 = br.readLine().toCharArray();
-							
-				for(int j = 0; j < s.length; j++)
+				for(int i = n; i <= m; i++)
 				{
-					x = (int) s[j] - 64;
-					if(x == -32)
-						sb.append(" ");
-					else
-						sb.append(s1[x - 1]);
+					addToArrayList(String.valueOf(i));
 				}
-				System.out.println((i + 1) + " " + sb.toString());
+			
+				System.out.println(sumArray(a));
 			}
 		}
-		catch(IOException e)
-		{}
 	}
 }
